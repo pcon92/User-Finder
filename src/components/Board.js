@@ -4,6 +4,9 @@ import React, { useState, useEffect } from 'react'
 // Import components
 import Item from './Item.js';
 import Slider from './Slider.js';
+import DataOptions from './DataOptions.js';
+
+
 
 const Board = () => {
 
@@ -46,19 +49,37 @@ const Board = () => {
     return (
         <div>
             <div className="Board-top-section">
-                <button onClick={callNextUser}>Call next user</button>
-                <button onClick={callNextUserGroup}>Call next user group</button>
-                <Slider 
-                    sliderVal={sliderVal}
-                    getSliderVal={getSliderVal}
-                />
+                <div className="btn-area-div">
+                    <button className="call-btn btn" onClick={callNextUser}>Call next user</button>
+                    <button className="call-btn btn" onClick={callNextUserGroup}>Call next user group</button>
+                    <Slider 
+                        sliderVal={sliderVal}
+                        getSliderVal={getSliderVal}
+                    />
+                </div>
+                <DataOptions />
             </div>
-            {user.map(user => (<Item 
-            first={user?.name.first}
-            last={user?.name.last}
-            age={user?.dob.age}
-            img={user?.picture.large}
-        />))}
+            <div className="Board-bottom-section">
+                {user.map(user => (<Item 
+                first={user?.name.first}
+                last={user?.name.last}
+                age={user?.dob.age}
+                img={user?.picture.large}
+                gender={user?.gender}
+                title={user?.name.title}
+                address={user?.location.city}
+                timezone={user?.location.timezone.offset}
+                email={user?.email}
+                login={user?.login.username}
+                dateofbirth={user?.dob.date}
+                registered={user?.registered.date}
+                phone={user?.phone}
+                mobile={user?.mobile}
+                id={user?.id.name}
+                nationality={user?.nat}
+                />))
+                }
+            </div>
         </div>
     );
 
