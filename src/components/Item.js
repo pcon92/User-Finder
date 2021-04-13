@@ -54,8 +54,7 @@ const Item = ({
                 </li>
             </ul>
             <div className="user-picture">
-                <img src={img}
-                    alt="user"></img>
+                    <img src={img} alt="user"></img>
             </div>
 
             <div className="supp-info-div supp-right">
